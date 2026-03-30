@@ -3,229 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juntos pela Lara | Ajude no tratamento da Fibrose Cística</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Lavagem Novinho - Estética Automotiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
+        /* Variáveis de Cores */
         :root {
-            --primary: #00a8cc;
-            --secondary: #005073;
-            --success: #2ecc71;
-            --bg: #f8fafc;
-            --text: #334155;
+            --primary: #007bff; 
+            --secondary: #0056b3; 
+            --dark: #0a192f;
+            --light: #f0f7ff; 
+            --accent: #25d366; 
+            --white: #ffffff;
         }
 
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; overflow-x: hidden; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--light); 
+            color: #444; 
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
 
-        /* --- Cabeçalho Interativo Recuperado --- */
+        /* Cabeçalho Interativo */
         header { 
-            background: linear-gradient(-45deg, #005073, #00a8cc, #4ca1af, #2c3e50);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: white; 
-            padding: 80px 20px; 
-            text-align: center;
             position: relative;
+            background: var(--white);
+            color: var(--dark); 
+            padding: 3rem 1rem 4rem 1rem;
+            text-align: center; 
             overflow: hidden;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+            border-bottom: 3px solid var(--primary);
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        header .logo-container {
+            position: relative;
+            /* z-index BAIXO para ficar ATRÁS das bolhas */
+            z-index: 1; 
+            max-width: 380px;
+            margin: 0 auto;
+        }
+
+        header .logo-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        header p { 
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary);
+            position: relative;
+            /* z-index ALTO para o texto ficar na frente das bolhas */
+            z-index: 10; 
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+
+        /* Bolhas Azuis e Vibrantes */
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* z-index INTERMEDIÁRIO: na frente da logo, atrás do texto */
+            z-index: 5; 
         }
 
         .bubble {
             position: absolute;
-            bottom: -20px;
-            background: rgba(255, 255, 255, 0.2);
+            bottom: -120px;
+            /* Gradiente azul para dar volume */
+            background: radial-gradient(circle at 30% 30%, rgba(0, 210, 255, 0.4), rgba(0, 123, 255, 0.7));
+            border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 50%;
-            animation: float 8s infinite;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: riseAndSway 8s infinite ease-in;
         }
 
-        @keyframes float {
-            0% { transform: translateY(0) scale(1); opacity: 0.8; }
-            100% { transform: translateY(-400px) scale(1.5); opacity: 0; }
+        /* Tamanhos e Posições das Bolhas */
+        .bubble:nth-child(1) { left: 5%; width: 70px; height: 70px; animation-duration: 6s; opacity: 0.8; }
+        .bubble:nth-child(2) { left: 15%; width: 40px; height: 40px; animation-duration: 4s; animation-delay: 1s; opacity: 0.6; }
+        .bubble:nth-child(3) { left: 30%; width: 90px; height: 90px; animation-duration: 9s; animation-delay: 2s; opacity: 0.7; }
+        .bubble:nth-child(4) { left: 50%; width: 50px; height: 50px; animation-duration: 7s; opacity: 0.9; }
+        .bubble:nth-child(5) { left: 70%; width: 110px; height: 110px; animation-duration: 11s; animation-delay: 3s; opacity: 0.6; }
+        .bubble:nth-child(6) { left: 85%; width: 35px; height: 35px; animation-duration: 5s; animation-delay: 1.5s; opacity: 0.8; }
+        .bubble:nth-child(7) { left: 92%; width: 65px; height: 65px; animation-duration: 8s; opacity: 0.7; }
+
+        /* Animação de Subida com Balanço Lateral */
+        @keyframes riseAndSway {
+            0% { 
+                bottom: -120px; 
+                transform: translateX(0) scale(0.8); 
+                opacity: 0; 
+            }
+            20% { opacity: 0.8; }
+            50% { transform: translateX(40px) scale(1.1); }
+            100% { 
+                bottom: 110%; 
+                transform: translateX(-40px) scale(1); 
+                opacity: 0; 
+            }
         }
 
-        h1 { margin: 0; font-size: 2.8em; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.1); }
-        .subtitle { font-size: 1.1em; opacity: 0.9; font-weight: 300; }
-
-        .container { max-width: 750px; margin: -50px auto 40px; background: white; padding: 35px; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.06); position: relative; z-index: 10; }
-
-        /* --- Carrossel com Fundo Branco --- */
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            height: 480px;
-            background: #ffffff; /* Fundo Branco solicitado */
-            border-radius: 20px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            border: 1px solid #f0f0f0;
-        }
-
-        .carousel-track { display: flex; height: 100%; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        /* Conteúdo Principal */
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; position: relative; z-index: 3; }
         
-        .slide { 
-            min-width: 100%; 
-            height: 100%; 
-            display: flex; 
+        h2 { 
+            margin: 40px 0 20px; 
+            color: var(--dark); 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2 i { color: var(--primary); }
+
+        .card-container {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,86,179,0.1);
+            border: 1px solid #e1e8ed;
+        }
+
+        .tabela-precos { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        .tabela-precos th { 
+            text-align: left; 
+            padding: 20px; 
+            background: #f0f7ff; 
+            color: var(--secondary);
+            font-weight: 700;
+            border-bottom: 2px solid #d0e3ff;
+        }
+        .tabela-precos td { padding: 20px; border-bottom: 1px solid #f0f4f8; }
+        
+        .preco { font-weight: 700; color: var(--primary); font-size: 1.1rem; }
+        .badge { background: var(--primary); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+
+        .servicos-extras { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card-extra { 
+            background: var(--white); 
+            padding: 30px; 
+            border-radius: 20px; 
+            text-align: center; 
+            transition: all 0.3s ease;
+            border: 1px solid #e1e8ed;
+        }
+        .card-extra:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,123,255,0.15); border-color: var(--primary); }
+        .card-extra i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; display: block; }
+
+        .obs-cera { 
+            background: #eef7ff; 
+            color: #0056b3; 
+            padding: 20px; 
+            border-radius: 15px; 
+            margin: 30px 0; 
+            border-left: 5px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cta-section { text-align: center; margin: 60px 0; }
+        .btn-whatsapp { 
+            background: var(--accent); 
+            color: white; 
+            padding: 20px 40px; 
+            border-radius: 100px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            display: inline-flex; 
             align-items: center; 
-            justify-content: center;
-            background: #ffffff; 
-        }
-
-        .slide img { 
-            max-width: 100%; 
-            max-height: 100%; 
-            object-fit: contain; /* Não corta a imagem */
-        }
-
-        .carousel-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background: rgba(255,255,255,0.9); border: none; width: 45px; height: 45px;
-            border-radius: 50%; cursor: pointer; z-index: 5; font-size: 1.2em;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); color: var(--secondary);
+            gap: 12px;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
             transition: 0.3s;
         }
-        .carousel-btn:hover { background: white; scale: 1.1; }
-        .btn-prev { left: 15px; } .btn-next { right: 15px; }
+        .btn-whatsapp:hover { transform: scale(1.05); background-color: #1ebe5d; }
 
-        /* --- Barra de Progresso --- */
-        .progresso-wrapper { margin: 35px 0; }
-        .meta-texto { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600; color: var(--secondary); }
-        
-        .barra-fundo { 
-            background: #e2e8f0; border-radius: 50px; height: 26px; width: 100%; 
-            position: relative; overflow: hidden; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        .barra-preenchimento { 
-            background: linear-gradient(90deg, #2ecc71, #27ae60); 
-            width: 10%; /* AJUSTE AQUI A PORCENTAGEM */
-            height: 100%; border-radius: 50px; position: relative;
-            transition: width 2s ease;
+        .wpp-float {
+            position: fixed; width: 65px; height: 65px; bottom: 30px; right: 30px;
+            background-color: var(--accent); color: #FFF; border-radius: 50px;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 32px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 100; text-decoration: none; transition: 0.3s;
         }
 
-        .barra-preenchimento::after {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
-            animation: shimmer 2s infinite;
-        }
-        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+        footer { background: var(--dark); color: white; text-align: center; padding: 4rem 2rem; margin-top: 60px; }
+        footer p { opacity: 0.7; font-size: 0.9rem; margin-bottom: 10px; }
 
-        /* --- Área PIX --- */
-        .pix-card {
-            background: #f0f9ff; border: 2px dashed var(--primary);
-            padding: 30px; border-radius: 20px; text-align: center; margin-top: 30px;
+        @media (max-width: 600px) {
+            header .logo-container { max-width: 280px; }
+            .tabela-precos thead { display: none; }
+            .tabela-precos td { display: block; text-align: right; padding: 10px 20px; }
+            .tabela-precos td::before { content: attr(data-label); float: left; font-weight: bold; color: var(--primary); }
         }
-        .chave-pix {
-            background: white; padding: 15px; border-radius: 12px; display: block;
-            margin: 15px 0; font-weight: 700; font-size: 1.2em; color: var(--secondary);
-            border: 1px solid #bae6fd; word-break: break-all;
-        }
-        .btn-doar {
-            background: var(--primary); color: white; border: none; padding: 18px;
-            border-radius: 50px; font-weight: 700; cursor: pointer; width: 100%;
-            transition: 0.3s; box-shadow: 0 5px 15px rgba(0, 168, 204, 0.2);
-        }
-        .btn-doar:active { transform: scale(0.97); }
-
-        @media (max-width: 600px) { .carousel-container { height: 320px; } h1 { font-size: 2em; } }
     </style>
 </head>
 <body>
 
-<header id="header">
-    <h1>Todos pela Lara ❤️</h1>
-    <p class="subtitle">Unidos para vencer a Fibrose Cística</p>
-</header>
-
-<div class="container">
-    <div class="carousel-container">
-        <div class="carousel-track" id="track">
-            <div class="slide"><img src="lara1.jpg"></div>
-            <div class="slide"><img src="lara2.jpg"></div>
-            <div class="slide"><img src="lara3.jpg"></div>
-            <div class="slide"><img src="lara4.jpg"></div>
+    <header>
+        <div class="logo-container">
+            <img src="image_2.png" alt="Lavagem Novinho - Estética Automotiva" class="logo-image">
         </div>
-        <button class="carousel-btn btn-prev" onclick="moveSlide(-1)">❮</button>
-        <button class="carousel-btn btn-next" onclick="moveSlide(1)">❯</button>
-    </div>
 
-    <div class="story-section">
-        <h2 style="color: var(--secondary); margin-bottom: 15px;">A Nossa Luta</h2>
-        <p>Recentemente, a vida da nossa pequena Lara de 2 aninhos tomou um novo rumo com o diagnóstico de <strong>Fibrose Cística</strong>. Esta condição exige tratamentos diários e medicamentos extremamente caros.</p>
-        <p>O custo total pode chegar a <strong>R$ 90 mil</strong>, valor que a família não tem como arcar sozinha. Criamos este site para que cada amigo e cada coração generoso possa ajudar com qualquer valor.</p>
-    </div>
-
-    <div class="progresso-wrapper">
-        <div class="meta-texto">
-            <span>Meta: R$ 50.000</span>
-            <span id="perc-label">7% Arrecadado</span>
+        <div class="bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
         </div>
-        <div class="barra-fundo">
-            <div class="barra-preenchimento"></div>
+
+        <p><i class="fas fa-sparkles"></i> Seu carro novo, de novo.</p>
+    </header>
+
+    <div class="container">
+        <div class="card-container">
+            <h2><i class="fas fa-car-clean"></i> Tabela de Preços</h2>
+            <table class="tabela-precos">
+                <thead>
+                    <tr>
+                        <th>CATEGORIA</th>
+                        <th>COMERCIAL</th>
+                        <th>DETALHADA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Categoria"><strong>Motos</strong></td>
+                        <td data-label="Comercial" class="preco">R$ 40,00</td>
+                        <td data-label="Detalhada" class="preco">R$ 80,00 <span class="badge">TOP</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Categoria"><strong>Carros Passeio</strong></td>
+                        <td data-label="Comercial" class="preco">R$ 50,00</td>
+                        <td data-label="Detalhada" class="preco">R$ 100,00 <span class="badge">TOP</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Categoria"><strong>Caminhonetes / SUV</strong></td>
+                        <td data-label="Comercial" class="preco">R$ 80,00</td>
+                        <td data-label="Detalhada" class="preco">R$ 150,00 <span class="badge">TOP</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="obs-cera">
+                <i class="fas fa-info-circle fa-2x"></i>
+                <span>
+                    <strong>Upgrade de Brilho:</strong> Adicione aplicação de cera na lavagem comercial por apenas <strong>R$ 20,00</strong>. 
+                </span>
+            </div>
         </div>
+
+        <h2><i class="fas fa-gem"></i> Serviços Especiais</h2>
+        <div class="servicos-extras">
+            <div class="card-extra">
+                <i class="fas fa-lightbulb"></i>
+                <h4>Faróis Novos</h4>
+                <p>Polimento restaurador para máxima visibilidade.</p>
+                <p class="preco">R$ 80,00</p>
+            </div>
+            <div class="card-extra">
+                <i class="fas fa-couch"></i>
+                <h4>Interior Basic</h4>
+                <p>Higienização comercial completa do habitáculo.</p>
+                <p class="preco">R$ 300,00</p>
+            </div>
+            <div class="card-extra">
+                <i class="fas fa-hand-sparkles"></i>
+                <h4>Interior Premium</h4>
+                <p>Extração profunda, teto, carpetes e hidratação.</p>
+                <p class="preco">R$ 600,00</p>
+            </div>
+        </div>
+
+        <section class="cta-section">
+            <a href="https://wa.me/5554996910847?text=Olá! Gostaria de fazer um orçamento para meu veículo." class="btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> AGENDAR AGORA
+            </a>
+        </section>
     </div>
 
-    <div class="pix-card">
-        <h3 style="margin-top:0;">Ajude pelo PIX</h3>
-        <p style="font-size: 0.9em; color: #64748b;">Toque abaixo para copiar a chave</p>
-        <span class="chave-pix" id="pixChave">fe04b4cf-a67b-487a-8cc5-d85fd4caa5ee</span>
-        <button class="btn-doar" onclick="copiarPix()" id="btnPix">Copiar Chave Pix</button>
-    </div>
-</div>
+    <a href="https://wa.me/5554996910847" class="wpp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-<footer style="text-align: center; padding: 20px; color: #94a3b8; font-size: 0.9em;">
-    Qualquer ajuda é uma benção. Compartilhe este link!
-</footer>
-
-<script>
-    let index = 0;
-    const track = document.getElementById('track');
-    const slides = document.querySelectorAll('.slide');
-
-    function moveSlide(dir) {
-        index += dir;
-        if (index >= slides.length) index = 0;
-        if (index < 0) index = slides.length - 1;
-        track.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    // Slide automático a cada 5 segundos
-    setInterval(() => moveSlide(1), 5000);
-
-    function copiarPix() {
-        const text = document.getElementById('pixChave').innerText;
-        const btn = document.getElementById('btnPix');
-        navigator.clipboard.writeText(text).then(() => {
-            btn.innerText = "✓ CHAVE COPIADA!";
-            btn.style.background = "#2ecc71";
-            setTimeout(() => { 
-                btn.innerText = "COPIAR CHAVE PIX"; 
-                btn.style.background = "#00a8cc";
-            }, 3000);
-        });
-    }
-
-    // Criar as bolhas interativas do cabeçalho
-    function createBubbles() {
-        const header = document.getElementById('header');
-        for (let i = 0; i < 12; i++) {
-            const bubble = document.createElement('div');
-            bubble.className = 'bubble';
-            const size = Math.random() * 50 + 10 + 'px';
-            bubble.style.width = size;
-            bubble.style.height = size;
-            bubble.style.left = Math.random() * 100 + '%';
-            bubble.style.animationDelay = Math.random() * 5 + 's';
-            header.appendChild(bubble);
-        }
-    }
-    createBubbles();
-</script>
+    <footer>
+        <h3 style="margin-bottom: 20px; font-family: 'Montserrat';">LAVAGEM NOVINHO</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Rua dos Carteiros, 2106 - Bairro Santa Fé</p>
+        <p>Caxias do Sul / RS</p>
+        <p><i class="fas fa-phone-alt"></i> (54) 99691-0847</p>
+    </footer>
 
 </body>
 </html>
